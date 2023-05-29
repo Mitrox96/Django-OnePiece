@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/profils.css' %}">
+
+</head>
+<body>
+<header>
+	<img src="{% static 'img/logo.png' %}" alt="Image OnePiece" height="150 px" width="150 px">
+</header>
+<main>
+<div class="text">
+    <h1>Voici le nom des différents roles :</h1>
+    {% csrf_token %}
+    {% for i in profils %}
+        </div>
+    <div>
+        <a href="details/{{i.id}}" class="button_details">Détails de : {{i.nom}}</a>
+
+        <a href="supprimer/{{i.id}}" class="button_delete">Supprimer</a>
+    </div>
+    {%endfor%}
+    <div>
+        <a href="creation_profils" class="button_create">Créer un role</a>
+    </div>
+</main>
+<footer>
+</footer>
+</body>
+
+</html>
